@@ -1,0 +1,27 @@
+<h3>Avatars</h3>
+<% sessionid = session[:id]
+if sessionid != nil
+    @user = User.find(sessionid)  %>
+    Welcome <%= @user.first %>! Session ID: <%= session[:id] %>
+
+<% end %>
+
+<ul class="collection">
+<% @avatars.each do |avatar| %>
+    <li class="collection-item avatar">
+    <% @user = User.find(avatar.user_id) %>
+      <span class="title"><%= @user.screenname %></span>
+      <p>Avatar Brave?: <%= avatar.bravery %></p>
+      <p>Avatar Powerful?: <%= avatar.power %></p>
+      <p>Avatar determined?: <%= avatar.determination %></p>
+      <p>Avatar funny?: <%= avatar.funny %></p>
+      <p>Avatar kind?: <%= avatar.kind %></p>
+      <p>Your avatar is: <img src=<%= if avatar.bravery == true and avatar.power == true and avatar.determination == true then ("https://static.cdprojektred.com/playgwent.com/news/big/playgwent.com_en_1535708549_5b890d852fb152.36885555.jpg") elsif avatar.bravery == true and avatar.power == true and avatar.kind == true then ("https://pbs.twimg.com/profile_images/913100879204556800/Ou9CxY1c_400x400.jpg") elsif avatar.bravery == true and avatar.power == true and avatar.funny == true then ("http://starsmedia.ign.com/stars/image/object/142/14230966/hector_fire-emblem_pictureboxart_160w.jpg") elsif avatar.bravery == true and avatar.determination == true and avatar.kind == true then ("https://fireemblemwiki.org/w/images/2/21/FEFT_Roy.png") elsif avatar.bravery == true and avatar.determination == true and avatar.funny == true then ("https://static.tvtropes.org/pmwiki/pub/images/papyrus16.png") elsif avatar.power == true and avatar.determination == true and avatar.kind == true then ("https://www.mineplex.com/proxy.php?image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FRC29owrs6t4%2Fhqdefault.jpg&hash=35282abd4ebf90502599647bfb57189f") elsif avatar.power == true and avatar.determination == true and avatar.funny == true then ("https://t0.rbxcdn.com/daf49238081c4cb960c14daac9a73cbd") elsif avatar.power == true and avatar.kind == true and avatar.funny == true then ("http://www.todayifoundout.com/wp-content/uploads/2017/11/santa.jpg") elsif avatar.determination == true and avatar.kind == true and avatar.funny == true then ("https://www.ssbwiki.com/images/a/a6/Lucas.png") else "https://vignette.wikia.nocookie.net/ultimate-pokemon-fanon/images/8/85/Missingno_drawing_by_aerostat-d4krmly.jpg/revision/latest?cb=20130916223342" end%> style="width:100px;height:100px;"></p>
+      <p><%= avatar.id %></p>
+   </li>
+      
+    </li>
+<% end %>
+</ul>
+
+<a href="/">Back to Home</a>

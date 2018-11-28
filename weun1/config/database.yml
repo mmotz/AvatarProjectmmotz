@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  database: project
+  username: <%= ENV['pal'] %>
+  password: <%= ENV['doot']%>
+  host: localhost
+  
+production:
+  adapter: postgresql
+  host: <%= ENV['ec2-54-243-147-162.compute-1.amazonaws.com'] %>
+  database: <%= ENV['d7t9km17l81hju'] %>
+  username: <%= ENV['ijuapccdktmlhi'] %>
+  password: <%= ENV['926a1fc2fcfbe853919bae97a91e824556695090f89ea91a20f319556d329630'] %

@@ -1,0 +1,17 @@
+<% sessionid = session[:id]
+@user = User.find(sessionid) 
+@stories = Story.where(user_id: Story.pluck(:user_id))
+ %>
+Welcome <%= @user.first %>! Session ID: <%= session[:id] %><br>
+<h3>Stories</h3>
+<ul class="collection">
+ <% @stories = @stories.order(created_at: :desc)
+   @stories.each do |story| 
+    @user = User.find(story.user_id) %>
+    <li class="collection-item avatar">
+      <span class="title"><%= @user.screenname %></span>
+        <p> <%= story.message %>
+      </p>
+    </li>
+<% end %>
+</ul>
