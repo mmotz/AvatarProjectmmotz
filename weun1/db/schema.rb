@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_041752) do
     t.string "email"
     t.string "password"
     t.string "social_security"
+    t.string "avatar_id"
   end
 
 end

@@ -20,7 +20,7 @@ end
 post '/submit_user' do
 	@user = User.new(params[:user])
 	if @user.save
-		redirect '/users'
+		redirect '/create_avatar'
 	else
 		"Sorry, there was an error!"
 	end
